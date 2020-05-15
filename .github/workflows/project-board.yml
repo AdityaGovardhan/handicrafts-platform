@@ -7,7 +7,6 @@ on:
     types:
       - opened
       - edited
-      - reopened
 
 jobs:
   add_to_project:
