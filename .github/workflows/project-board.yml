@@ -1,0 +1,20 @@
+name: 'add new PR to Kanban Board'
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - edited
+      - reopened
+
+jobs:
+  add_to_project:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: AdityaGovardhan/ga-pull-requests-projects@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        pull_request: ${{ github.event.pull_request.number }}
