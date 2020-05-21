@@ -1,1 +1,1 @@
-# microservices-based-handicrafts-platform
+# handicrafts-platform
