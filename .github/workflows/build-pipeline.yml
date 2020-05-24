@@ -19,4 +19,4 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     - name: Lint JS codebase
-      run: npx eslint . --max-warnings 0
+      run: npm run lint
