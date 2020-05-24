@@ -12,5 +12,7 @@ RUN npm ci
 COPY src src
 
 EXPOSE 3000
+# to be removed
+EXPOSE 3001
 
 CMD ["npm", "start", "--silent"]
