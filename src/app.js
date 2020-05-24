@@ -5,7 +5,7 @@ const usersRouter = require('./user-profiles');
 
 const mainApp = express();
 
-const PORT = 3000; // take from config later
+const PORT = 3001; // take from config later
 
 mainApp.get('/', (req, res) => res.send('main page'));
 
