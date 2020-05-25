@@ -9,10 +9,11 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm ci
 
-COPY src src
-
 EXPOSE 3000
 # to be removed
 EXPOSE 3001
+
+COPY src src
+COPY public public
 
 CMD ["npm", "start", "--silent"]
