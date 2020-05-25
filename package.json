@@ -31,11 +31,11 @@
     "lint": "npx eslint . --max-warnings 0",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "start:web": "react-scripts start",
-    "start:server": "node src/app.js",
+    "start:server": "node src/server.js",
     "start": "npm-run-all --parallel start:server start:web",
-    "docker": "docker build --tag app . && echo 'APP STARTED' && docker run --rm -it -p 3000:3000/tcp -p 3001:3001/tcp app",
-    "eject": "react-scripts eject"
+    "docker": "docker build --tag app . && echo '### STARTING APP, WAIT ###' && docker run --rm -it -p 3000:3000/tcp -p 3001:3001/tcp app"
   },
   "eslintConfig": {
     "extends": "react-app"
