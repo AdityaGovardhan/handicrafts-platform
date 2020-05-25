@@ -13,7 +13,12 @@ export const ItemGrid = (props) => ( // linting issue
 
       {props.Items.map((Item) => (
         <GridListTile>
-          <ItemTileCard key={Item.id} name={Item.name} url={Item.url} description={Item.description}>
+          <ItemTileCard
+            key={Item.id}
+            name={Item.name}
+            url={Item.url}
+            description={Item.description}
+          >
             {/* <img src={Item.url} alt={Item.name} /> */}
           </ItemTileCard>
         </GridListTile>
