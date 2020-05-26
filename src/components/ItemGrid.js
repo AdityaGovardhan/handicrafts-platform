@@ -1,17 +1,16 @@
 import React from 'react';
-// import { Row, Col, Container } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-// import styled from 'styled-components';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import { ItemTileCard } from './ItemTileCard';
+import PropTypes from 'prop-types';
+import ItemTileCard from './ItemTileCard';
 
-export const ItemGrid = (props) => ( // linting issue
+const ItemGrid = ({ Items }) => ( // linting issue
 
   <Container>
     <GridList cellHeight={300} cols={3}>
 
-      {props.Items.map((Item) => (
+      { Items.map((Item) => (
         <GridListTile>
           <ItemTileCard
             key={Item.id}
@@ -19,7 +18,7 @@ export const ItemGrid = (props) => ( // linting issue
             url={Item.url}
             description={Item.description}
           >
-            {/* <img src={Item.url} alt={Item.name} /> */}
+            <img src={Item.url} alt={Item.name} />
           </ItemTileCard>
         </GridListTile>
       ))}
@@ -28,3 +27,9 @@ export const ItemGrid = (props) => ( // linting issue
   </Container>
 
 );
+
+ItemGrid.propTypes = {
+  Items: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default ItemGrid;

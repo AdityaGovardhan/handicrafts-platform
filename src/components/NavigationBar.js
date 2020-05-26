@@ -14,7 +14,7 @@ const Styles = styled.div`
   }
 `;
 
-export const NavigationBar = () => (
+const NavigationBar = () => (
   <Styles>
     <Navbar expand="lg">
       <Navbar.Brand href="/"> local works</Navbar.Brand>
@@ -29,3 +29,5 @@ export const NavigationBar = () => (
     </Navbar>
   </Styles>
 );
+
+export default NavigationBar;
