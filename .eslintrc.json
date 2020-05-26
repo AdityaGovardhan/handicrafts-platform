@@ -12,6 +12,7 @@
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+ 
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -22,6 +23,11 @@
         "react"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] // TODO: what does this do?
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // TODO: what does this do?
+        // Common bug in react community . recommend solution is to disable it.
+        // https://stackoverflow.com/questions/44437203/how-do-i-resolve-eslint-import-no-named-as-default
+        "import/no-named-as-default": 0                                 
+
+     
     }
 }

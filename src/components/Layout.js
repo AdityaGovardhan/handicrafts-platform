@@ -1,10 +1,17 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
-
-export const Layout = (props) => (
+const Layout = ({ children }) => (
 
   <Container>
-    {props.children}
+    {children}
   </Container>
 );
+
+Layout.propTypes = {
+  children: PropTypes.instanceOf(Object).isRequired,
+
+};
+
+export default Layout;
