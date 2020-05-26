@@ -1,33 +1,17 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
- 
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // TODO: what does this do?
-        // Common bug in react community . recommend solution is to disable it.
-        // https://stackoverflow.com/questions/44437203/how-do-i-resolve-eslint-import-no-named-as-default
-        "import/no-named-as-default": 0                                 
-
-     
-    }
+  // tells eslint what kind of global variables are available by default
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  // tells eslint from what to extend the configuration
+  "extends": [
+    // needs eslint-config-airbnb module installed
+    "airbnb"
+  ],
+  "rules": {
+    // Allowing jsx code inside js file without .jsx extension
+    // Ref: https://github.com/airbnb/javascript/tree/master/react#naming
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
 }

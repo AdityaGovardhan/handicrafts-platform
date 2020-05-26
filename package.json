@@ -4,11 +4,6 @@
   "author": "Aditya Govardhan, Vasishta Harekal",
   "dependencies": {
     "@material-ui/core": "^4.10.0",
-    "@material-ui/icons": "^4.9.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "bootstrap": "^4.5.0",
     "express": "^4.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -19,13 +14,7 @@
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^2.5.1",
     "npm-run-all": "^4.1.5"
   },
   "scripts": {
@@ -36,7 +25,7 @@
     "start:web": "react-scripts start",
     "start:server": "node src/server.js",
     "start": "npm-run-all --parallel start:server start:web",
-    "docker": "docker build --tag app . && echo '### STARTING APP, WAIT ###' && docker run --rm -it -p 3000:3000/tcp -p 3001:3001/tcp app"
+    "docker": "docker build --tag app . && docker run --rm -it -p 3000:3000/tcp -p 3001:3001/tcp app"
   },
   "browserslist": {
     "production": [
