@@ -12,6 +12,8 @@
   "rules": {
     // Allowing jsx code inside js file without .jsx extension
     // Ref: https://github.com/airbnb/javascript/tree/master/react#naming
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // Temporary, need some automation around commenting console prints in CI/prod
+    "no-console": "off"
   }
 }

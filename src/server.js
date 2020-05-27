@@ -1,7 +1,7 @@
 const express = require('express');
 
 const itemsRouter = require('./items');
-const usersRouter = require('./user-profiles');
+const usersRouter = require('./users');
 
 const mainApp = express();
 
