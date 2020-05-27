@@ -8,6 +8,7 @@ import Layout from './components/Layout';
 import NavigationBar from './components/NavigationBar';
 import Jumbotron from './components/Jumbotron';
 import ItemGrid from './components/ItemGrid';
+import UserProfileView from './users/UserProfileView';
 
 
 class App extends Component {
@@ -84,6 +85,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/:userid" component={UserProfileView} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
               <Route component={NoMatch} />
