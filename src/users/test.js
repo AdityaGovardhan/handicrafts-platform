@@ -5,6 +5,7 @@ const user = UserBuilder.user()
   .withMiddleName('Nagesh')
   .withLastName('Govardhan')
   .withEmailId('dtgovardhan@gmail.com')
+  .withPhoneNumber('9876543210')
   .build();
 
 console.log(user);
