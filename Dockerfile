@@ -1,4 +1,4 @@
-FROM node:12.0.0
+FROM node:12.17.0
 
 WORKDIR /var/wwww/handicrafts-platform
 
