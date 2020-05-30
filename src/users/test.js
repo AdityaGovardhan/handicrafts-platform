@@ -1,26 +1,23 @@
 const UserBuilder = require('./UserBuilder');
-
-const { connectToDb, insertUser, findUser } = require('./UserPersistence');
+const UserDB = require('./UserDB');
 
 const user = UserBuilder.user()
+  .withUserId('AdityaGovardhan')
   .withFirstName('Aditya')
   .withMiddleName('Nagesh')
   .withLastName('Govardhan')
   .withEmailId('dtgovardhan@gmail.com')
   .withPhoneNumber('9876543210')
+  .withDateOfBirth('4th April 1996')
   .withGender('male')
+  .withResidentialAddress('Tempe, AZ')
   .build();
 
 // console.log(user);
 
-const db = connectToDb();
+const userDb = new UserDB();
 
-insertUser(db, user, () => {
-  console.log('Inserted a User into the users collections');
-  // console.log(result);
-});
-
-findUser(db, {}, (result) => {
-  console.log('Found the following records');
-  console.log(result);
+userDb.insertUser(user, () => {
+  console.log('User inserted successfully');
+  userDb.closeConnection();
 });

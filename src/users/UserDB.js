@@ -1,43 +1,44 @@
 const { MongoClient } = require('mongodb');
 
+class UserDB {
+  constructor() {
+    const url = 'mongodb://localhost:27017';
+    const dbName = 'handicrafts-platform';
+
+    this.client = new MongoClient(url, { useUnifiedTopology: true });
+
+    this.client.connect(() => {
+      console.log('Connected successfully to the UserDB');
+    });
+
+    this.db = this.client.db(dbName);
+    this.collection = this.db.collection('users');
+  }
+
+  insertUser(userObj, callback) {
+    this.collection.insertOne(userObj, (err, result) => {
+      if (err) console.log(err);
+      callback(result);
+    });
+  }
+
+  findUserById(userId, callback) {
+    this.collection.find(userId).toArray((err, result) => {
+      if (err) console.log(err);
+      callback(result);
+    });
+  }
+
+  closeConnection() {
+    this.client.close();
+  }
+}
+
+module.exports = UserDB;
+
 // const url = 'mongodb://localhost:27017';
-
 // const dbName = 'handicrafts-platform';
-
 // const client = new MongoClient(url, { useUnifiedTopology: true });
-
-const connectToDb = () => {
-  const url = 'mongodb://localhost:27017';
-  const dbName = 'handicrafts-platform';
-  const client = new MongoClient(url, { useUnifiedTopology: true });
-
-  client.connect(() => {
-    console.log('Connected successfully to the DB');
-  });
-
-  const db = client.db(dbName);
-  return db;
-};
-
-const insertUser = (db, user, callback) => {
-  const collection = db.collection('users');
-
-  collection.insertOne(user, (err, result) => {
-    if (err) console.log(err);
-    callback(result);
-  });
-};
-
-const findUser = (db, searchParam, callback) => {
-  const collection = db.collection('users');
-
-  collection.find(searchParam).toArray((err, result) => {
-    if (err) console.log(err);
-    callback(result);
-  });
-};
-
-module.exports = { connectToDb, insertUser, findUser };
 
 // const insertDocuments = (db, callback) => {
 //   const collection = db.collection('users');

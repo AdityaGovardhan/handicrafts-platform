@@ -1,5 +1,6 @@
 class User {
   constructor(userBuilder) {
+    this.userId = userBuilder.userId;
     this.firstName = userBuilder.firstName;
     this.middleName = userBuilder.middleName;
     this.lastName = userBuilder.lastName;
