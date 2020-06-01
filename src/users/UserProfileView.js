@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  Container, Card, Row, Col,
+} from 'react-bootstrap';
 // import { useParams } from 'react-router-dom';
+
+// let count = 0; // DEBUG
 
 class UserProfileView extends React.Component {
   constructor(props) {
@@ -12,6 +17,7 @@ class UserProfileView extends React.Component {
 
   componentDidMount() {
     const { match } = this.props;
+    // console.log(`HERE2 ${match.params.userId}`); // DEBUG
 
     fetch(`/${match.params.userId}`)
       .then((res) => res.json())
@@ -25,9 +31,15 @@ class UserProfileView extends React.Component {
   render() {
     const { userData } = this.state;
 
+    // DEBUG
+    // count += 1;
+    // console.log(count);
+    // console.log(this.state);
+    // console.log(this.props);
+
     // https://stackoverflow.com/questions/55359176/handling-undefined-null-properties-in-components-during-first-render
     if (userData === null) {
-      console.log('HERE!');
+      // console.log('HERE!'); // DEBUG
       return (
         <div>
           <h2>Loading...</h2>
@@ -35,10 +47,29 @@ class UserProfileView extends React.Component {
       );
     }
 
+    // console.log(userData); // DEBUG
     return (
-      <div>
-        <h2>Hi {userData.firstName}!</h2>
-      </div>
+      <Container>
+        <Row>
+          <Col>
+            <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/${userData.userId}.jpg`} />
+          </Col>
+          <Col>
+            <Card border="light">
+              <Card.Body>
+                <Card.Title><h1>{`${userData.firstName} ${userData.lastName}`}</h1></Card.Title>
+                <Card.Subtitle>{`${userData.emailId}`}</Card.Subtitle>
+              </Card.Body>
+              <Card.Body>
+                <Card.Text>
+                  I love Handicrafts!
+                  {/* TODO: take user description message */}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
