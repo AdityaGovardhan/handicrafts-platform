@@ -6,6 +6,11 @@ class UserBuilder {
     return new UserBuilder();
   }
 
+  withUserId(userId) {
+    this.userId = userId;
+    return this;
+  }
+
   withFirstName(firstName) {
     this.firstName = firstName;
     return this;

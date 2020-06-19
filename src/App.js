@@ -7,7 +7,6 @@ import About from './pages/About';
 import Layout from './components/Layout';
 import NavigationBar from './components/NavigationBar';
 import Jumbotron from './components/Jumbotron';
-import ItemGrid from './components/ItemGrid';
 import UserProfileView from './users/UserProfileView';
 
 
@@ -74,7 +73,6 @@ class App extends Component {
     };
   }
 
-
   render() {
     const { Items } = this.state;
     return (
@@ -84,17 +82,15 @@ class App extends Component {
         <Layout>
           <Router>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/:userid" component={UserProfileView} />
+              <Route exact path="/" render={() => <Home Items={Items} />} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
+              <Route exact path="/:userid" component={UserProfileView} />
               <Route component={NoMatch} />
             </Switch>
           </Router>
-          <ItemGrid Items={Items} />
         </Layout>
       </>
-
     );
   }
 }

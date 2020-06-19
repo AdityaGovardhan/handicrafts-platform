@@ -10,9 +10,10 @@
     "airbnb"
   ],
   "rules": {
-    // Allowing jsx code inside js file without .jsx extension
-    // Ref: https://github.com/airbnb/javascript/tree/master/react#naming
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
+    "react/jsx-one-expression-per-line": [0, { "allow": "single-child" }],
     // Temporary, need some automation around commenting console prints in CI/prod
     "no-console": "off"
   }
