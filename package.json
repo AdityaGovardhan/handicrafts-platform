@@ -26,7 +26,8 @@
     "eject": "react-scripts eject",
     "start:web": "react-scripts start",
     "start:server": "nodemon src/server.js",
-    "start": "npm-run-all --parallel start:server start:web",
+    "start:db": "docker run --rm -d  -p 27017:27017/tcp mongo:4.2.7",
+    "start": "npm-run-all --parallel start:db start:server start:web",
     "docker": "docker build --tag app . && docker run --rm -it -p 3000:3000/tcp -p 3001:3001/tcp app"
   },
   "proxy": "http://localhost:3001",
