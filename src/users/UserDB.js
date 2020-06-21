@@ -8,7 +8,7 @@ class UserDB {
     this.client = new MongoClient(url, { useUnifiedTopology: true });
 
     this.client.connect(() => {
-      console.log('Connected successfully to the UserDB');
+      console.log('Connected successfully to the UserDB'); // TODO: need to convert to single connection, new connection is being created for every request, wasteful
     });
 
     this.db = this.client.db(dbName);
@@ -23,7 +23,7 @@ class UserDB {
   }
 
   findUserById(userId, callback) {
-    this.collection.find(userId).toArray((err, result) => {
+    this.collection.find({ userId }).toArray((err, result) => {
       if (err) console.log(err);
       callback(result);
     });

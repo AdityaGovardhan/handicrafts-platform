@@ -85,7 +85,8 @@ class App extends Component {
               <Route exact path="/" render={() => <Home Items={Items} />} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/:userid" component={UserProfileView} />
+              {/* path are case sensitive */}
+              <Route exact path="/:userId" component={UserProfileView} />
               <Route component={NoMatch} />
             </Switch>
           </Router>
